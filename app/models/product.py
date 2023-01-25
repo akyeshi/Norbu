@@ -11,12 +11,12 @@ class Product(db.Model):
   
   ''' table columns '''
   id = db.Column(db.Integer, primary_key=True)
+  seller_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
   name = db.Column(db.String(255), nullable=False)
   category = db.Column(db.String(255), nullable=False)
   description = db.Column(db.String(1500), nullable=False)
   price = db.Column(db.Float, nullable=False)
   stock = db.Column(db.Integer, nullable=False)
-  seller_id = id.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
 
 
   ''' relationshps with other tables '''
