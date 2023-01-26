@@ -1,0 +1,35 @@
+<h1 style="text-align: center">Product Form Data Display</h1>
+<h3 style="text-align: center">total products: {{ data|length }}</h3>
+
+
+
+{% for product in data %} 
+<hr></hr>
+<div style="color: red">{{ product.id }}</div>
+<div style="color: blue">Name: {{ product.name }}</div>
+<div style="color: red">Category: {{ product.category }}</div>
+<div style="color: black">Description: {{ product.description }}</div>
+{% endfor %}
+
+
+
+
+<!-- {% for product in data %}
+<table style="border: 1px solid red">
+  <caption>Product Form Data</caption>
+  <tr style="color: blue; font-weight: bold;">
+    <th>Name</th>
+    <th>Category</th>
+    <th>Description</th>
+  </tr>
+  <tr style="border: 1px solid re">
+    <td >{{ product.name }}</td>
+    <td style="border-left: 1px solid red">{{ product.category }}</td>
+    <td style="border-left: 1px solid red">{{ product.description }}</td>
+  </tr>
+</table>
+{% endfor %} -->
+
+
+
+

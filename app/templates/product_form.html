@@ -1,0 +1,12 @@
+
+
+<h3> Products </h3>
+<form action="/api/products/" method="POST">
+  {{ form.csrf_token }}
+    <p>{{ form.name.label }}: {{ form.name }} </p>
+    <p>{{ form.category.label }}: {{ form.category }} </p>
+    <p>{{ form.description.label }}: {{ form.description }} </p>
+    <p>{{ form.price.label }}: {{ form.price }} </p>
+    <p>{{ form.stock.label }}: {{ form.stock }} </p>
+    <p>{{ form.submit }}</p>
+</form>
