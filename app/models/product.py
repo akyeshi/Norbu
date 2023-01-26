@@ -9,7 +9,7 @@ class Product(db.Model):
     __table_args__ = {'schema': SCHEMA}
 
   
-  ''' table columns '''
+  # table columns
   id = db.Column(db.Integer, primary_key=True)
   seller_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
   name = db.Column(db.String(255), nullable=False)
@@ -19,12 +19,12 @@ class Product(db.Model):
   stock = db.Column(db.Integer, nullable=False)
 
 
-  ''' relationshps with other tables '''
+  # table relationships attributes 
   users = db.relationship("User", back_populates="products")
+  images = db.relationship("Image", back_populates="products", cascade="all, delete")
 
 
-
-  ''' instance method '''
+  # instance methods
   def to_dict(self): 
     return {
       'id': self.id, 
