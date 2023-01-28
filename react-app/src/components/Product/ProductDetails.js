@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getOneProductThunk } from "../store/products";
-import noimage from "./images/noimage.jpg";
+import { getOneProductThunk } from "../../store/products";
+import noimage from "../images/noimage.jpg"
 import { FaStar } from "react-icons/fa";
-import "./index.css";
+import "./Product.css";
 
 const ProductDetails = () => {
   const history = useHistory();
@@ -25,7 +25,6 @@ const ProductDetails = () => {
   if (sessionUser?.id === product?.sellerId) seller = true;
   if (!product) return null;
 
-
   if (sessionUser && product) {
     if (sessionUser.id === product.seller_Id) {
       currentUser = false;
@@ -33,7 +32,7 @@ const ProductDetails = () => {
   }
   const options = [];
   for (let i = 1; i <= product.stock; i++) {
-      options.push(i);
+    options.push(i);
   }
 
   return (
@@ -52,6 +51,7 @@ const ProductDetails = () => {
                       onClick={() => {
                         setSelectedImage(image);
                       }}
+                      style={{ height: 200, width: 200 }}
                       alt="productimage"
                     ></img>
                   );
@@ -63,6 +63,7 @@ const ProductDetails = () => {
                   onClick={() => {
                     setSelectedImage(noimage);
                   }}
+                  style={{ height: 200, width: 200 }}
                   alt="noimage"
                 ></img>
               )}

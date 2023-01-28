@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addProductImgThunk } from "../store/products";
-import "./index.css";
+import { addProductImgThunk } from "../../store/products";
+import "./Product.css";
 
 const AddProductImages = (productId) => {
   const dispatch = useDispatch();

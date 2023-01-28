@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getAllProductsThunk } from "../store/products";
-import "./index.css";
+import { getAllProductsThunk } from "../../store/products";
+import Footer from "../Navigation/Footer.js"; 
+import "./Product.css";
 
 const ProductsBrowser = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,8 @@ const ProductsBrowser = () => {
   const productArr = Object.values(productsObj);
 
   /* simplist way to shuffle an array in JavaScript
-  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const shuffledArray = array.sort((a, b) => 0.5 - Math.random());
+    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const shuffledArray = array.sort((a, b) => 0.5 - Math.random());
   */
 
   const randomProducts = productArr.sort(() => 0.5 - Math.random());
@@ -23,8 +24,7 @@ const ProductsBrowser = () => {
   );
 
   const displayProducts = randomProducts.slice(0, 8);
-  // const sponsorProducts = randomProducts.slice(8, 13);
-  // const EditorPickProducts = randomProducts.slice(13, 18);
+
   useEffect(() => {
     dispatch(getAllProductsThunk(productsObj));
   }, [dispatch]);
@@ -80,6 +80,7 @@ const ProductsBrowser = () => {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 };

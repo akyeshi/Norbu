@@ -8,6 +8,9 @@ const UPDATE_PRODUCT = "products/updateproduct";
 const REMOVE_PRODUCT = "products/deleteproduct";
 const MY_PRODUCTS = "products/myproduct";
 const RESET_PRODUCTS = "products/RESET_PRODUCTS";
+const SEARCH_PRODUCTS = 'products/searchedProducts';
+
+
 
 /* ------------------ Regular Actions ------------------ */
 
@@ -61,6 +64,14 @@ const loadMyProducts = (products) => {
     products,
   };
 };
+
+
+const loadSearchProducts = (products) => {
+  return {
+      type: SEARCH_PRODUCTS,
+      products
+  }
+}
 
 /* ------------------ Thunk Actions ------------------ */
 
@@ -156,6 +167,17 @@ export const loadMyProductsThunk = () => async (dispatch) => {
   }
 };
 
+
+export const loadProductsBySearchThunk = (keyword) => async (dispatch) => {
+  const response = await fetch(`/api/products/search/${keyword}`);
+  if (response.ok) {
+      const products = await response.json();
+      dispatch(loadSearchProducts(products));
+      return products;
+  }
+}
+
+
 /* ------------------ Main Reducer Function ------------------ */
 
 const initialState = {
@@ -167,6 +189,7 @@ const initialState = {
 const products = (state = initialState, action) => {
   let newState;
   switch (action.type) {
+    
     case LOAD_ALL_PRODUCTS:
       newState = { ...state, allProducts: { ...state.allProducts } };
       action.products.Products.forEach((product) => {
@@ -231,6 +254,13 @@ const products = (state = initialState, action) => {
       newState.allProducts = {};
       newState.singleProduct = {};
       return newState;
+
+    case SEARCH_PRODUCTS:
+      newState = {...state, searchedProducts: {}};
+      action.products.Products.forEach(product => {
+          newState.searchedProducts[product.id] = product
+      })
+      return newState
 
     default:
       return state;
