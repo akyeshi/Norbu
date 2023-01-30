@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getOneProductThunk } from "../../store/products";
-import noimage from "../images/noimage.jpg"
-import { FaStar } from "react-icons/fa";
+import { resetProductThunk, getOneProductThunk } from "../../store/products";
+
+// import { FaStar } from "react-icons/fa"
+// import Footer from '../Navigation/Footer.js';
+import noimage from "../images/noimage.jpg";
 import "./Product.css";
 
 const ProductDetails = () => {
@@ -14,6 +16,7 @@ const ProductDetails = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const product = useSelector((state) => state.products.singleProduct)[0];
   const [selectedImage, setSelectedImage] = useState(null);
+
   const [quantity, setQuantity] = useState(1);
   let currentUser;
 
@@ -21,10 +24,28 @@ const ProductDetails = () => {
     dispatch(getOneProductThunk(productId));
   }, [dispatch, productId]);
 
+  //verify if currentUser is seller of product
   let seller = false;
   if (sessionUser?.id === product?.sellerId) seller = true;
-  if (!product) return null;
 
+  if (!product) return null;
+  // if (!sellerId) return null;
+  // const addToCart = async () => {
+  //     if(sessionUser){
+  //         if (sessionUser.id === product.sellerId) {
+  //             await window.alert("You are the owner of this product! You cannot add it to cart")
+  //             return history.push('/')
+  //         }
+  //     console.log("-------ProductDetail---BEFORE---dispatchThunk-----")
+  //     console.log(`productId: +${productId} is a ${typeof(+productId)}`)
+  //     console.log(`product.id: ${product.id} is a ${typeof(product.id)}`)
+  //     await dispatch(addCartItemThunk(product.id, quantity))
+  //     console.log("-------ProductDetail---AFTER---dispatchThunk-----")
+  //     return history.push('/cart')
+  //     } else {
+  //         window.alert(`Please sign in to purchase.`)
+  //     }
+  // }
   if (sessionUser && product) {
     if (sessionUser.id === product.seller_Id) {
       currentUser = false;
@@ -34,6 +55,24 @@ const ProductDetails = () => {
   for (let i = 1; i <= product.stock; i++) {
     options.push(i);
   }
+
+  //   const getCartButtonMessage = (stock) => {
+  //     if (stock === 0) return 'Out of stock'
+  //     let messageBase = 'Add to cart';
+  //     if (stock <= 5) {
+  //           messageBase += ` | Only ${stock} available`
+  //     }
+  //     return messageBase;
+  //  }
+  // const reviewStars = (avgRating) => {
+  //   if (avgRating == 0) {
+  //       return <span>"New"</span>
+  //   } else if (Number.isInteger(avgRating)) {
+  //       return <span> <i className="fa-solid fa-star"> *{avgRating}</i></span>
+  //   } else {
+  //       return <span>{Math.round(avgRating)} * <i className="fa-solid fa-star"></i> + <i className="fa fa-star-half-o" aria-hidden="true"></i></span>
+  //   }
+  // }
 
   return (
     <div>
@@ -51,7 +90,6 @@ const ProductDetails = () => {
                       onClick={() => {
                         setSelectedImage(image);
                       }}
-                      style={{ height: 200, width: 200 }}
                       alt="productimage"
                     ></img>
                   );
@@ -63,7 +101,6 @@ const ProductDetails = () => {
                   onClick={() => {
                     setSelectedImage(noimage);
                   }}
-                  style={{ height: 200, width: 200 }}
                   alt="noimage"
                 ></img>
               )}
@@ -87,85 +124,70 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div className="product-right-part"></div>
-        <div className="single-product-seller">{product.seller}</div>
-        <div className="single-product-sales">
-          {product.salesNumber} sales{" "}
-          <span className="vertical-seperate">|</span>
-          <span className="product-detail-avgrating-star">
-            {product.avgRating && Number(product.avgRating) % 1 ? (
-              <span>
-                {[...Array(Math.floor(product.avgRating))].map((star) => (
-                  <i className="fa-solid fa-star"></i>
-                ))}
-                <i className="fa fa-star-half-o" aria-hidden="true"></i>
-              </span>
-            ) : (
-              <span>
-                {[...Array(product.avgRating)].map((star) => (
-                  <i className="fa-solid fa-star"></i>
-                ))}
-              </span>
-            )}
-            {!product.avgRating && (
-              <span>
-                {[...Array(5)].map((star) => (
-                  <FaStar className="prod-star" color="#e4e5e9" size={16.5} />
-                ))}
-              </span>
-            )}
-          </span>
-        </div>
-
-        <div className="single-product-name">{product.name}</div>
-
-        <div className="single-product-price">
-          ${Number(product.price).toFixed(2)}
-        </div>
-
-        <div className="single-product-stock">Stock: {product.stock}</div>
-        <div className="single-product-quantity">
-          <select
-            className="product-input-quantity"
-            value={quantity}
-            onChange={(e) => setQuantity(e.target.value)}
-          >
-            {options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="single-product-description">Description</div>
-        <div className="single-product-description-content">
-          {" "}
-          {product.description}
-        </div>
-        <div className="single-product-shipping">Cost to ship</div>
-        <div className="free-shipping">Free</div>
-        <div className="free-shipping-message">
-          Artsy offsets carbon emissions from shipping and packaging on this
-          purchase.
-        </div>
-        <div className="return-exchange-div">
-          <div>
-            <div className="return-exchange-smalltext">Returns & exchanges</div>
-            <div className="return-exchange-bigtext">Accepted</div>
-            <div className="return-exchange-smalltext">
-              Exceptions may apply
-            </div>
+        <div className="product-right-part">
+          <div className="single-product-seller">{product.seller}</div>
+          <div className="single-product-sales">
+            {Math.floor(Math.random() * 1000)} sales
+            <span className="vertical-seperate">|</span>
+            <span>
+              {[...Array(Math.ceil(Math.random() * 5))].map((star) => (
+                <i className="fa-solid fa-star"></i>
+              ))}
+            </span>
           </div>
-          <div>
-            <div className="return-exchange-smalltext">
-              Return & exchange window
-            </div>
-            <div className="return-exchange-bigtext">30 days</div>
-            <div className="return-exchange-smalltext">from item delivery</div>
+          <div className="single-product-name">{product.name}</div>
+          <div className="single-product-price">
+            ${Number(product.price).toFixed(2)}
           </div>
+          <div className="single-product-stock">Stock: {product.stock}</div>
+          <div className="single-product-quantity">
+            <select
+              className="product-input-quantity"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            >
+              {options.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="single-product-description">Description</div>
+          <div className="single-product-description-content">
+            {" "}
+            {product.description}
+          </div>
+
+          {/* <div className="single-product-shipping">Cost to ship</div>
+                <div className="free-shipping">Free</div>
+                <div className="free-shipping-message">
+                  Artsy offsets carbon emissions from shipping and packaging on this
+                  purchase.
+                </div>
+                <div className="return-exchange-div">
+                  <div>
+                    <div className="return-exchange-smalltext">
+                      Returns & exchanges
+                    </div>
+                    <div className="return-exchange-bigtext">Accepted</div>
+                    <div className="return-exchange-smalltext">
+                      Exceptions may apply
+                    </div>
+                  </div>
+                  <div>
+                    <div className="return-exchange-smalltext">
+                      Return & exchange window
+                    </div>
+                    <div className="return-exchange-bigtext">30 days</div>
+                    <div className="return-exchange-smalltext">
+                      from item delivery
+                    </div>
+                  </div>
+                </div> */}
         </div>
       </div>
+      {/* <Footer /> */}
     </div>
   );
 };

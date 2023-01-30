@@ -60,6 +60,7 @@ const ProductsBrowser = () => {
         </div>
       </div>
 
+
       <div className="display-product-main">
         {displayProducts?.map((product, i) => {
           return (
@@ -80,7 +81,7 @@ const ProductsBrowser = () => {
           );
         })}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -22,22 +22,25 @@ const NavBar = () => {
               </div>
             </NavLink>
           </div>
+
           <SearchBar />
+
           {user ? (
             <>
               <div className="navBar-link-icon">
-                <NavLink
-                    to="/favourites"
-                    exact={true}
-                    activeClassName="active"
-                  >
-                    <i className="fa-regular fa-heart"></i>
-                  </NavLink>
+                <NavLink to="/favourites" exact={true} activeClassName="active">
+                  <i className="fa-regular fa-heart"></i>
+                </NavLink>
               </div>
+
               <div className="navBar-link-icon">
-                <i className="fa-regular fa-bell" style={{marginRight:5}}></i>
+                <i
+                  className="fa-regular fa-bell"
+                  style={{ marginRight: 5 }}
+                ></i>
                 <i class="fa-solid fa-sort-down"></i>
               </div>
+
               <div className="navBar-link-icon">
                 <NavLink
                   to="/shop-manager"
@@ -47,6 +50,7 @@ const NavBar = () => {
                   <i className="fa-solid fa-store"></i>
                 </NavLink>
               </div>
+
               <div className="navBar-link-profile">
                 <ProfileButton user={user} />
               </div>

@@ -18,6 +18,7 @@ class Image(db.Model):
 
     # table relationships
     products = db.relationship("Product", back_populates="images")
+    review = db.relationship("Review", back_populates="images")
 
 
     # instance methods

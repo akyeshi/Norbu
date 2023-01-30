@@ -47,7 +47,7 @@ const AddProductImages = (productId) => {
       await dispatch(addProductImgThunk(url3, imgProductId));
     }
 
-    history.push(`/store-manager`);
+    history.push(`/shop-manager`);
   };
 
   return (

@@ -9,7 +9,7 @@ const Footer = () => {
         <img src={footer} className="main-footer-img" alt=""></img>
       </div> */}
       {/* <div className="footer-middle"></div> */}
-      <div className="footer-lower">
+      <div style={{backgroundColor: 'black', color: 'black'}} className="footer-lower">
         <div className="socials-main">
           <div className="footer-middle-left">
             <div className="footer-happily-header">© 2023 Norbu</div>

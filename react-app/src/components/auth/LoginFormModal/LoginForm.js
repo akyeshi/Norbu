@@ -23,8 +23,8 @@ const LoginForm = () => {
   const DemoUser = (e) => {
     e.preventDefault();
     setErrors([]);
-    const demoEmail = "demo@gmail.com";
-    const demoPassword = "demo_user";
+    const demoEmail = "jmsbond@aa.io";
+    const demoPassword = "password";
     return dispatch(login(demoEmail, demoPassword)).catch(async (res) => {
       const data = await res.json();
       if (data && data.errors) setErrors(data.errors);

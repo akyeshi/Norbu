@@ -6,14 +6,16 @@ import SignUpForm from "./components/auth/SignupFormModal/SignUpForm";
 import NavBar from "./components/Navigation/NavBar";
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
+import UsersList from "./components/auth/UsersList";
+import User from "./components/auth/User";
 import { authenticate } from "./store/session";
 
 import ProductsBrowser from "./components/Product/BrowseProducts";
 import CreateProduct from "./components/Product/CreateProducts";
 import ProductDetails from "./components/Product/ProductDetails";
-
+import ProductsBySearch from "./components/Product/ProductsBySearch";
+import ShopManager from "./components/Product/ShopManager";
+import PageNotFound from "./components/Product/PageNotFound";
 import Footer from "./components/Navigation/Footer";
 
 function App() {
@@ -38,6 +40,10 @@ function App() {
         <Route exact path="/">
           <ProductsBrowser />
         </Route>
+        <Route exact path="/search/:keyword">
+          <ProductsBySearch />
+        </Route>
+
         <Route path="/login" exact={true}>
           <LoginForm />
         </Route>
@@ -50,11 +56,18 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
+
         <Route path="/products/:productId" exact={true}>
           <ProductDetails />
         </Route>
         <Route path="/new-product" exact={true}>
           <CreateProduct />
+        </Route>
+        <Route path="/shop-manager" exact={true}>
+          <ShopManager />
+        </Route>
+        <Route>
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>

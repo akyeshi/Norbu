@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
 
     ''' relationshps with other tables '''
     products = db.relationship("Product", back_populates="users", cascade="all, delete")
-
+    reviews = db.relationship("Review", back_populates="user", cascade="all, delete")
 
     ''' decorator functions '''
     @property

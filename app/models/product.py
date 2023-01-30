@@ -22,6 +22,7 @@ class Product(db.Model):
   # table relationships attributes 
   users = db.relationship("User", back_populates="products")
   images = db.relationship("Image", back_populates="products", cascade="all, delete")
+  reviews = db.relationship("Review", back_populates="product", cascade="all, delete")
 
 
   # instance methods
@@ -35,3 +36,20 @@ class Product(db.Model):
       'stock': self.stock, 
       'seller_id': self.seller_id
     }
+
+
+  def to_dict_search(self):
+      return {
+          'id': self.id,
+          'category': self.category,
+          'name': self.name,
+          'description': self.description,
+          'price': self.price,
+          'stock': self.stock,
+          'sellerId': self.seller_id,
+          'previewImage': self.images[0].url,
+          'avgRating': self.get_avgstars(),
+          'numReviews': len(self.reviews),
+          'storeName': self.users.username
+      }
+
