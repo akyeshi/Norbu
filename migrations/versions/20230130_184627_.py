@@ -34,7 +34,7 @@ def upgrade():
     sa.Column('seller_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=255), nullable=False),
     sa.Column('category', sa.String(length=255), nullable=False),
-    sa.Column('description', sa.String(length=1500), nullable=False),
+    sa.Column('description', sa.String(length=1000000), nullable=False),
     sa.Column('price', sa.Float(), nullable=False),
     sa.Column('stock', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['seller_id'], ['users.id'], ),
