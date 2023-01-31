@@ -38,8 +38,8 @@ const CreateProduct = () => {
       errors.push("Category: Category selection is required");
     if (description.length < 10 || description.trim().length < 10)
       errors.push("Description: Description cannot be less than 10 characters");
-    if (description.length > 20000)
-      errors.push("Description: Description cannot exceed 20000 characters");
+    if (description.length > 1000000)
+      errors.push("Description: Description cannot exceed 1M characters");
     if (isNaN(price)) errors.push("Price: Price must be a number");
     if (price <= 0.1) errors.push("Price: Price must be greater than $1.00 ");
     if (price > 1000000) errors.push("Price: Price exceeds $1000 limit");
