@@ -26,6 +26,13 @@ class Product(db.Model):
 
 
   # instance methods
+  def get_avgstars(self): 
+    if len(self.reviews) > 0: 
+      avg = sum(review.stars for review in self.reviews) / len(self.reviews)
+      return round(avg, 1)
+    else: 
+      return 0.00
+
   def to_dict(self): 
     return {
       'id': self.id, 
