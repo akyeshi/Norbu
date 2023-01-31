@@ -9,6 +9,7 @@ from app.models.db import db, environment, SCHEMA
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
+# create a command in flask called 'seed' 
 
 
 # Creates the `flask seed all` command

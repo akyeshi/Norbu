@@ -36,8 +36,8 @@ const EditProduct = ({ productId, setShowEditForm }) => {
       errors.push("Category: Category selection is required");
     if (description.length < 10 || description.trim().length < 10)
       errors.push("Description: Description cannot be less than 10 characters");
-    if (description.length > 2000)
-      errors.push("Description: Description cannot exceed 2000 characters");
+    if (description.length > 20000)
+      errors.push("Description: Description cannot exceed 20000 characters");
     if (isNaN(price)) errors.push("Price: Price must be a number");
     if (price <= 0.1) errors.push("Price: Price must be greater than $1.00 ");
     if (price > 1000000) errors.push("Price: Price exceeds $1000 limit");
@@ -61,7 +61,12 @@ const EditProduct = ({ productId, setShowEditForm }) => {
 
   return (
     <div className="editproduct-wrapper">
-      <div style={{color: 'grey', backgroundColor: 'white'}} className="editproduct-form-title">Edit Product</div>
+      <div
+        style={{ color: "grey", backgroundColor: "white" }}
+        className="editproduct-form-title"
+      >
+        Edit Product
+      </div>
       <form className="editproduct-form" onSubmit={editSubmit}>
         {/* <div className='eidtproduct-errors'>
                     <ul>
@@ -183,7 +188,11 @@ const EditProduct = ({ productId, setShowEditForm }) => {
             />
           </label>
           <br></br>
-          <button style={{color: 'red', backgroundColor: 'white'}} className="editproduct-button" type="submit">
+          <button
+            style={{ color: "red", backgroundColor: "white" }}
+            className="editproduct-button"
+            type="submit"
+          >
             Edit
           </button>
         </div>
