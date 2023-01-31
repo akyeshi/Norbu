@@ -7,9 +7,9 @@ def seed_reviews():
   # valentine products 
   valentineproduct01review01 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
+    user_id = 5, 
     product_id = 1, 
-    stars = 5, 
+    stars = 4.8, 
     review = 
     '''
     This is the most beautiful delicate necklace I’ve ever owned. The owner did what I asked and was great to work with. Shipping was fast.
@@ -17,7 +17,7 @@ def seed_reviews():
   )
   valentineproduct01review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
+    user_id = 4, 
     product_id = 1, 
     stars = 5, 
     review = 
@@ -27,8 +27,8 @@ def seed_reviews():
   )
   valentineproduct02review01 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
+    user_id = 3, 
+    product_id = 2, 
     stars = 5, 
     review = 
     '''
@@ -37,9 +37,9 @@ def seed_reviews():
   )
   valentineproduct02review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 5, 
+    product_id = 2, 
+    stars = 4.7, 
     review = 
     '''
     Seller is very responsive and replied to my message within a very short time. The product is amazing and smells even better!!!! They have a loyal customer and I can't wait to order more items!!
@@ -48,8 +48,8 @@ def seed_reviews():
   valentineproduct03review01 = Review (
     created_at = datetime.now(), 
     user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    product_id = 3, 
+    stars = 4.8, 
     review = 
     '''
     Loved our sign!!! 36in Neutral white and in font Hesterica. Tammy was so helpful and quick with answers. We needed our sign in one month, she got it to us in 2 weeks. It was just as we expected.
@@ -57,8 +57,8 @@ def seed_reviews():
   )
   valentineproduct03review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
+    user_id = 4, 
+    product_id = 3, 
     stars = 5, 
     review = 
     '''
@@ -67,9 +67,9 @@ def seed_reviews():
   )
   valentineproduct04review01 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 4, 
+    product_id = 4, 
+    stars = 4.9, 
     review = 
     '''
     The picture doesn't even do these justice! Sooo pretty! Nothing but beautiful, quality beads throughout the entire strand. Thanks!
@@ -77,9 +77,9 @@ def seed_reviews():
   )
   valentineproduct04review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 3, 
+    product_id = 4, 
+    stars = 4.7, 
     review = 
     '''
     Wow, this is spot on fig, and smells INSANE!!!!! (in a good way!!!). Shop owner is super kind, I wanted to switch to the clear glass and she answered promptly!
@@ -88,8 +88,8 @@ def seed_reviews():
   valentineproduct05review01 = Review (
     created_at = datetime.now(), 
     user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    product_id = 5, 
+    stars = 2.6, 
     review = 
     '''
     This doesn’t look at all like how the picture the font is completely different. There is no outline border and looks very cheap and I’m sad. Why can’t you sell things that match the picture exactly that’s why people purchase it based off of pictures but thanks for ruining Valentine’s Day gifts.
@@ -97,9 +97,9 @@ def seed_reviews():
   )
   valentineproduct05review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 4, 
+    product_id = 5, 
+    stars = 2.8, 
     review = 
     '''
     Took almost a month to ship and while I understand it was the holidays the estimated shipping was way off and arrived late. Ordered a new one from a different company that arrived insanely fast and kept this one for myself. While it’s pretty it scratches really easily!
@@ -108,8 +108,8 @@ def seed_reviews():
   valentineproduct06review01 = Review (
     created_at = datetime.now(), 
     user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    product_id = 6, 
+    stars = 4.4, 
     review = 
     '''
     Lovely! A matching gift for my sister and I. Fits on my wrist wonderfully. I can't wait to give the other to my sister. Thank you so much!
@@ -117,9 +117,9 @@ def seed_reviews():
   )
   valentineproduct06review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 2, 
+    product_id = 6, 
+    stars = 4.8, 
     review = 
     '''
     Love, love our sophisticated friendship bracelets. Seller was a joy to work with. Would definitely order from her again!
@@ -127,9 +127,9 @@ def seed_reviews():
   )
   valentineproduct07review01 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 3, 
+    product_id = 7, 
+    stars = 4.6, 
     review = 
     '''
     Very soft and comfortable socks. Would definitely buy another pair!
@@ -137,9 +137,9 @@ def seed_reviews():
   )
   valentineproduct07review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 2, 
+    product_id = 7, 
+    stars = 3.9, 
     review = 
     '''
     Nice and comfy. A little thin.
@@ -148,8 +148,8 @@ def seed_reviews():
   valentineproduct08review01 = Review (
     created_at = datetime.now(), 
     user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    product_id = 8, 
+    stars = 4.8, 
     review = 
     '''
     Love, love, love! My boyfriend is a gardener and keeps houseplants, this is going in a new plant I am getting him for Valentine's Day. <3
@@ -157,9 +157,9 @@ def seed_reviews():
   )
   valentineproduct08review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 5, 
+    product_id = 8, 
+    stars = 4, 
     review = 
     '''
     Workmanship very nice. Very cute little item to put in flower containers.
@@ -167,8 +167,8 @@ def seed_reviews():
   )
   valentineproduct09review01 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
+    user_id = 4, 
+    product_id = 9, 
     stars = 5, 
     review = 
     '''
@@ -177,9 +177,9 @@ def seed_reviews():
   )
   valentineproduct09review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 3, 
+    product_id = 9, 
+    stars = 4.5, 
     review = 
     '''
     Pretty but disappointed with the price for the very small size.
@@ -188,8 +188,8 @@ def seed_reviews():
   valentineproduct10review01 = Review (
     created_at = datetime.now(), 
     user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    product_id = 10, 
+    stars = 4, 
     review = 
     '''
     Ah! I am SO happy for these mittens 🥰 They are so well made, thick and very warm. The fleece lining is such a nice touch. Absolutely adorable! Very happy with this purchase.
@@ -197,9 +197,9 @@ def seed_reviews():
   )
   valentineproduct10review02 = Review (
     created_at = datetime.now(), 
-    user_id = 1, 
-    product_id = 1, 
-    stars = 5, 
+    user_id = 4, 
+    product_id = 10, 
+    stars = 3.5, 
     review = 
     '''
     Mittens look good, but might be a bit small for my girlfriend. Size is as described.
