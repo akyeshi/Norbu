@@ -39,7 +39,8 @@ const ProductsBrowser = () => {
 
   const randomProducts = productArr.sort(() => 0.5 - Math.random());
   const displayProducts = randomProducts.slice(0, 8);
-  const sponsoredProducts = randomProducts.slice(8, 13);
+  const sponsoredProducts = randomProducts.slice(5, 10);
+  // const sponsoredProducts = randomProducts.slice(8, 13);
   const editorPickedProducts = randomProducts.slice(3, 8);
   // const editorPickedProducts = randomProducts.slice(13, 18)
 
@@ -78,7 +79,6 @@ const ProductsBrowser = () => {
           <div className="category-name">Valentine</div>
         </div>
 
-
         <div className="circle-container">
           <NavLink to={`/products/${valentineProducts[0]?.id}`}>
             <div className="img-outer">
@@ -91,7 +91,6 @@ const ProductsBrowser = () => {
           </NavLink>
           <div className="category-name">Wedding & Party</div>
         </div>
-
 
         <div className="circle-container">
           <NavLink to={`/products/${valentineProducts[0]?.id}`}>
@@ -106,7 +105,6 @@ const ProductsBrowser = () => {
           <div className="category-name">Home & Living</div>
         </div>
 
-
         <div className="circle-container">
           <NavLink to={`/products/${valentineProducts[0]?.id}`}>
             <div className="img-outer">
@@ -119,7 +117,6 @@ const ProductsBrowser = () => {
           </NavLink>
           <div className="category-name">Clothing & Shoes</div>
         </div>
-
 
         <div className="circle-container">
           <NavLink to={`/products/${valentineProducts[0]?.id}`}>
@@ -134,7 +131,6 @@ const ProductsBrowser = () => {
           <div className="category-name">Gifts & Gift Cards</div>
         </div>
 
-
         <div className="circle-container">
           <NavLink to={`/products/${valentineProducts[0]?.id}`}>
             <div className="img-outer">
@@ -147,10 +143,6 @@ const ProductsBrowser = () => {
           </NavLink>
           <div className="category-name">Art & Collectibles</div>
         </div>
-
-
-
-
       </div>
 
       <div className="display-product-main">
