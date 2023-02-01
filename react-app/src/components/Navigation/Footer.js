@@ -9,43 +9,35 @@ const Footer = () => {
         <img src={footer} className="main-footer-img" alt=""></img>
       </div> */}
       {/* <div className="footer-middle"></div> */}
-      <div style={{backgroundColor: 'black', color: 'black'}} className="footer-lower">
+      <div className="footer-lower">
         <div className="socials-main">
           <div className="footer-middle-left">
-            <div className="footer-happily-header">© 2023 Norbu</div>
-            <div className="footer-happily-description">
-              An e-commerce site for demonstration purposes only.
+            <div className="footer-happily-header">
+              © 2023 Norbu
+              <span className="footer-happily-description">
+                An e-commerce site for demonstration purposes only.
+              </span>
             </div>
           </div>
           <div className="footer-middle-right">
             <div className="socials-inner">
               <div>
-                <i className="fa-brands fa-github"></i>
-              </div>
-              <div>
                 <a
                   href="https://github.com/akyoshicode/Norbu.git"
                   className="social-link"
                   target="_blank"
-                >
-                  Project Repo
-                </a>
+                ><i className="fa-brands fa-github"></i></a>
               </div>
             </div>
 
             <div className="socials-inner">
               {/* <div><i className="fa-brands fa-linkedin"></i></div> */}
               <div>
-                <i className="fa-brands fa-linkedin"></i>
-              </div>
-              <div>
                 <a
                   href="https://linkedin.com/in/akyeshi"
                   className="social-link"
                   target="_blank"
-                >
-                  Achok Yeshi
-                </a>
+                ><i className="fa-brands fa-linkedin"></i></a>
               </div>
             </div>
           </div>

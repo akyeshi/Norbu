@@ -15,6 +15,11 @@ import CreateProduct from "./components/Product/CreateProducts";
 import ProductDetails from "./components/Product/ProductDetails";
 import ProductsBySearch from "./components/Product/ProductsBySearch";
 import ShopManager from "./components/Product/ShopManager";
+
+import LoadUserReviews from "./components/Review/LoadUserReviews";
+import CreateReviewForm from "./components/Review/CreateReviewForm";
+import EditReviewForm from "./components/Review/EditReviewForm";
+
 import PageNotFound from "./components/Product/PageNotFound";
 import Footer from "./components/Navigation/Footer";
 
@@ -66,6 +71,17 @@ function App() {
         <Route path="/shop-manager" exact={true}>
           <ShopManager />
         </Route>
+
+        <Route path="/my-reviews" exact={true}>
+          <LoadUserReviews />
+        </Route>
+        <Route path="/products/:productId/new-review" exact={true}>
+          <CreateReviewForm />
+        </Route>
+        <Route path="/reviews/:reviewId/edit-review" exact={true}>
+          <EditReviewForm />
+        </Route>
+
         <Route>
           <PageNotFound />
         </Route>

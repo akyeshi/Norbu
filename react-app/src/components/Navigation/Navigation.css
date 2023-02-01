@@ -304,12 +304,12 @@ nav {
 .footer-lower {
   overflow-y: hidden;
   min-width: 100%;
-  height: 100px;
+  height: 88px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  background-color: #1E3A66;
+  background-color: black;
 }
 
 .footer-happily-header {
@@ -323,6 +323,7 @@ nav {
   color: white;
   font-size: 0.85rem;
   margin-top: 0.4rem;
+  margin-left: 5rem; 
 }
 
 .socials-main,

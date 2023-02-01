@@ -171,7 +171,7 @@ def seed_products():
     Whether you’re saying “I do”, taking a risk to do what you love, or making big changes to live the life you want, let this ring inspire you to brave that worthwhile journey.
     ''', 
     price = 475, 
-    stock = 3, 
+    stock = 0, 
   )
 
   valentine07 = Product(
