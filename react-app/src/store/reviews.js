@@ -7,6 +7,7 @@ const UPDATE_REVIEW = "REVIEWS/UPDATE_REVIEW";
 const DELETE_REVIEW = "REVIEWS/DELETE_REVIEW";
 // const ADD_REVIEW_IMAGE = "REVIEWS/ADD_REVIEW_IMAGE"
 
+
 /*--------------- Regular Action Creators ---------------*/
 
 const loadProductReviews = (reviews) => {
