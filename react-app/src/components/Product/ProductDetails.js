@@ -267,8 +267,7 @@ const ProductDetails = () => {
               <i className="fa-solid fa-truck-fast fa-2xl"></i>
               {/* <i className="fa-solid fa-truck-fast fa-2xl"></i> */}
               <div className="product-detail-text">
-                <span className="ajw">Hooray!&nbsp;</span>This item ships free
-                to the US.
+                <span className="ajw">Nice Choice!&nbsp;</span>Enjoy free shipping to the US when you spend $35+ at this shop.
               </div>
             </div>
           </div>

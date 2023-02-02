@@ -15,6 +15,7 @@ import CreateProduct from "./components/Product/CreateProducts";
 import ProductDetails from "./components/Product/ProductDetails";
 import ProductsBySearch from "./components/Product/ProductsBySearch";
 import ShopManager from "./components/Product/ShopManager";
+import Cart from "./components/Cart";
 
 import LoadUserReviews from "./components/Review/LoadUserReviews";
 import CreateReviewForm from "./components/Review/CreateReviewForm";
@@ -70,6 +71,9 @@ function App() {
         </Route>
         <Route path="/shop-manager" exact={true}>
           <ShopManager />
+        </Route>
+        <Route path='/cart' exact={true}>
+          <Cart />
         </Route>
 
         <Route path="/my-reviews" exact={true}>
