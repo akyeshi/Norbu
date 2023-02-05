@@ -8,6 +8,7 @@ import Footer from '../Navigation/Footer.js';
 const ProductsBySearch = () =>{
   const dispatch = useDispatch();
   const { keyword } = useParams();
+  
   const currUser = useSelector(state => state.session.user)
   const productsArr = useSelector(state => Object.values(state.products.searchedProducts))
 
@@ -28,10 +29,12 @@ const ProductsBySearch = () =>{
       </div>
       <div className='search-main'>
         <div className='search-products-main'>
+
           {productsArr?.map((product, i) => {
             return (
               <div className='search-product-body'>
-                <NavLink to={`/products/${product?.id}`} style={{textDecoration: 'none'}} key={i}>
+
+                <NavLink to={`/products/${product?.id}`}  key={i}>
                     <div className='search-product-img-container'>
                       <img src={product?.previewImage} className='search-product-img' alt='images'></img>
                     </div>
@@ -58,6 +61,7 @@ const ProductsBySearch = () =>{
                     }
                     <div className='search-product-price'>${parseFloat(product?.price).toFixed(2)}</div>
                 </NavLink>
+
                 <div className='search-product-shop'>{currUser?.username}</div>
               </div>
             )

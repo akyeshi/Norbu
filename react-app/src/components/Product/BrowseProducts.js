@@ -80,7 +80,7 @@ const ProductsBrowser = () => {
         </div>
 
         <div className="circle-container">
-          <NavLink to={`/products/${valentineProducts[0]?.id}`}>
+          <NavLink to={`/products/${valentineProducts[1]?.id}`}>
             <div className="img-outer">
               <img
                 src={valentineProducts[1]?.previewImage}
@@ -93,7 +93,7 @@ const ProductsBrowser = () => {
         </div>
 
         <div className="circle-container">
-          <NavLink to={`/products/${valentineProducts[0]?.id}`}>
+          <NavLink to={`/products/${valentineProducts[2]?.id}`}>
             <div className="img-outer">
               <img
                 src={valentineProducts[2]?.previewImage}
@@ -106,7 +106,7 @@ const ProductsBrowser = () => {
         </div>
 
         <div className="circle-container">
-          <NavLink to={`/products/${valentineProducts[0]?.id}`}>
+          <NavLink to={`/products/${valentineProducts[3]?.id}`}>
             <div className="img-outer">
               <img
                 src={valentineProducts[3]?.previewImage}
@@ -119,7 +119,7 @@ const ProductsBrowser = () => {
         </div>
 
         <div className="circle-container">
-          <NavLink to={`/products/${valentineProducts[0]?.id}`}>
+          <NavLink to={`/products/${valentineProducts[4]?.id}`}>
             <div className="img-outer">
               <img
                 src={valentineProducts[4]?.previewImage}
@@ -132,7 +132,7 @@ const ProductsBrowser = () => {
         </div>
 
         <div className="circle-container">
-          <NavLink to={`/products/${valentineProducts[0]?.id}`}>
+          <NavLink to={`/products/${valentineProducts[5]?.id}`}>
             <div className="img-outer">
               <img
                 src={valentineProducts[5]?.previewImage}

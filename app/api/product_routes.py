@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, render_template, redirect
 from flask_login import login_required, current_user
-from app.models import db, User, Product, Image, Review 
-from app.forms import ProductForm, ImageForm, ReviewForm
+from app.models import db, User, Product, Image, Review, CartItem
+from app.forms import ProductForm, ImageForm, ReviewForm, CartItemForm
 from datetime import datetime 
 import random 
 from .auth_routes import validation_errors_to_error_messages
@@ -310,3 +310,77 @@ def create_review(product_id):
     return {"errors": validation_errors_to_error_messages(form.errors)}, 400
 
 
+
+
+
+#------------------- cart cruds: POST ---------------------
+
+
+@product_router.route("/<int:product_id>/cart", methods=["POST"])
+@login_required
+def create_cart_item(product_id):
+  print(f"-------111BACKEND STARTS-------product id: {product_id}")
+
+  item = Product.query.get(product_id)
+  print(f"-------222BACKEND -------item: {item}")
+  print(f"-------222BACKEND -------item.seller_id: {item.seller_id}")
+  print(f"-------222BACKEND -------current_user.id: {current_user.id}")
+
+  cartItem = db.session.query(CartItem) \
+                            .filter(CartItem.user_id == current_user.id) \
+                            .filter(CartItem.product_id == product_id) \
+                            .filter(CartItem.order_id == 0)\
+                            .first()
+                      
+  print(f"-------333BACKEND -------cartItem: {cartItem}")
+
+  form = CartItemForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
+
+  if not item:
+    return {"errors" : "Product couldn't be found"}, 404
+  if item.seller_id == current_user.id:
+    return {"errors" : "You can not add your own product to cart"}, 400
+
+  print(f"-------444BACKEND -------before form.validate_on_submit")
+
+  if form.validate_on_submit():
+    if not cartItem:
+      data = CartItem(
+        user_id = current_user.id,
+        product_id = product_id,
+        quantity = form.data["quantity"],
+        order_id = 0
+      )
+      db.session.add(data)
+      db.session.commit()
+      print(f"-------555BACKEND -------if not cartItem, data.to_dict: {data.to_dict_current()}")
+
+      return data.to_dict_current(), 200
+
+    else:
+      if cartItem.quantity + form.data["quantity"] > cartItem.product.stock:
+        cartItem.quantity = cartItem.product.stock
+        cartItem.message = "You have reached the maximum stock for this product."
+        db.session.commit()
+        return cartItem.to_dict_current(), 200
+
+      else:
+        cartItem.quantity += form.data["quantity"]
+        db.session.commit()
+        return cartItem.to_dict_current(), 200
+  else:
+
+    return {"errors": validation_errors_to_error_messages(form.errors)}, 400
+
+# fetch("http://localhost:3000/api/products/5/cart_items", {
+#    method: 'POST',
+#    body: JSON.stringify({
+#     "quantity": 1
+#   }),
+#    headers: {
+#     'Content-type': 'application/json'
+#   }
+#  })
+#  .then(res => res.json())
+#  .then(console.log)

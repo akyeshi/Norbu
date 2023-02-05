@@ -72,7 +72,7 @@ function App() {
         <Route path="/shop-manager" exact={true}>
           <ShopManager />
         </Route>
-        <Route path='/cart' exact={true}>
+        <Route path="/cart" exact={true}>
           <Cart />
         </Route>
 

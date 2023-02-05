@@ -36,7 +36,7 @@ const checkoutCartAction = () => ({
 /*--------------- Thunk Action Creators ---------------*/
 
 export const getCartItemsThunk = () => async (dispatch) => {
-  const response = await fetch("/api/cart_items/current");
+  const response = await fetch("/api/cart/current");
   if (response.ok) {
     const cartItems = await response.json();
     dispatch(getCartItemsAction(cartItems));
@@ -45,8 +45,7 @@ export const getCartItemsThunk = () => async (dispatch) => {
 };
 
 export const addCartItemThunk = (productId, quantity) => async (dispatch) => {
-
-  const response = await fetch(`/api/products/${productId}/cart_items`, {
+  const response = await fetch(`/api/products/${productId}/cart`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -65,7 +64,7 @@ export const addCartItemThunk = (productId, quantity) => async (dispatch) => {
 };
 
 export const editCartItemThunk = (id, quantity) => async (dispatch) => {
-  const response = await fetch(`/api/cart_items/${id}`, {
+  const response = await fetch(`/api/cart/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -83,7 +82,7 @@ export const editCartItemThunk = (id, quantity) => async (dispatch) => {
 };
 
 export const deleteCartItemThunk = (id) => async (dispatch) => {
-  const response = await fetch(`/api/cart_items/${id}`, {
+  const response = await fetch(`/api/cart/${id}`, {
     method: "DELETE",
   });
 
@@ -98,7 +97,7 @@ export const deleteCartItemThunk = (id) => async (dispatch) => {
 };
 
 export const checkoutCartThunk = () => async (dispatch) => {
-  const response = await fetch("/api/cart_items/checkout", {
+  const response = await fetch("/api/cart/checkout", {
     method: "DELETE",
   });
   if (response.ok) {

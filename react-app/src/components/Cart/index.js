@@ -1,31 +1,45 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { getCartItemsThunk } from "../../store/carts.js"; 
 import CartItem from "./CartItem";
 import CartTotal from "./CartTotal";
 import "./Cart.css";
 import { authenticate } from "../../store/session";
+import LoginFormModal from "../auth/LoginFormModal/index.js";
 
 
 
 const Cart = () => {
   // const [loaded, setLoaded] = useState(false);
+  const history = useHistory(); 
   const [showLogin, setShowLogin] = useState(false);
   const [cartLoaded, setCartLoaded] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
+  // const cartItems = useSelector(state => Object.values(state.cart));
+
   const cartObj = useSelector((state) => state.cart);
   console.log('cart object: ', cartObj)
+  
   const cartItems = Object.values(cartObj);
   console.log('cart items array: ', cartItems)
 
   // const [errors, setErrors] = useState([]);
   const dispatch = useDispatch();
+
   let initialSubtotal = 0;
   if (cartItems) {
     for (let cartItem of cartItems) {
       initialSubtotal += cartItem?.quantity * cartItem?.Product?.price;
     }
+  }
+
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    setShowLogin(true) && (
+      <LoginFormModal />
+    )
   }
 
   // useEffect(() => {
@@ -41,16 +55,26 @@ const Cart = () => {
         await dispatch(getCartItemsThunk());
         setCartLoaded(true);
       }
-      // setLoaded(true);
     })();
   }, [dispatch, cartItems.length]);
 
-  // if (!loaded) {
-  //   return null;
-  // }
-  if (!sessionUser)
+
+  if (!sessionUser) 
     return (
-      <div className="cart-need-login">Please log in to checkout your cart</div>
+      
+      <div 
+        className="cart-need-login"
+        // onClick={() => history.push("/cart")}
+      >Please log in to checkout your cart
+      </div>
+
+
+      // <button
+      //   style={{display: 'grid', margin: 'auto'}}
+      //   onClick={handleClick} 
+      //   >Please log to checkout your cart</button>
+      
+      
     );
 
   return (

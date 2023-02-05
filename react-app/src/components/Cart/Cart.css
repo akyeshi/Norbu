@@ -40,10 +40,10 @@
 .cart-need-login{
   font-size: 35px;
   text-align: center;
-  margin-top: 150px;
+  margin-top: 180px;
   text-decoration-line: underline;
-  text-decoration-color: lightgreen;
-  text-decoration-thickness: 20px;
+  /* text-decoration-color: red; */
+  /* text-decoration-thickness: 20px; */
 
 }
 
