@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import ProfileButton from "./ProfileButton";
 import LoginFormModal from "../auth/LoginFormModal";
@@ -9,6 +9,7 @@ import "./Navigation.css";
 
 const NavBar = () => {
   const user = useSelector((state) => state.session.user);
+  const history = useHistory();
   // console.log('user -----------\n', user)
 
   return (
@@ -34,11 +35,13 @@ const NavBar = () => {
               </div>
 
               <div className="navBar-link-icon">
-                <i
-                  className="fa-regular fa-bell"
-                  style={{ marginRight: 5 }}
-                ></i>
-                <i class="fa-solid fa-sort-down"></i>
+                <NavLink to="/updates" exact={true} activeClassName="active">
+                  <i
+                    className="fa-regular fa-bell"
+                    style={{ marginRight: 5 }}
+                  ></i>
+                  <i class="fa-solid fa-sort-down"></i>
+                </NavLink>
               </div>
 
               <div className="navBar-link-icon">

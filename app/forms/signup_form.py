@@ -20,9 +20,17 @@ def username_exists(form, field):
         raise ValidationError('Username is already in use.')
 
 
+# class SignUpForm(FlaskForm):
+#     username = StringField('username', validators=[DataRequired(), username_exists, Length(max=255, message="Username must be fewer than 255 characters")])
+#     email = StringField('email', validators=[DataRequired(), user_exists, Length(max=255, message="Email must be fewer than 255 characters"), Email()])
+#     firstName = StringField('first_name', validators=[DataRequired(), Length(max=50, message="First Name must be fewer than 50 characters")])
+#     lastName = StringField('last_name', validators=[DataRequired(), Length(max=50, message="Last Name must be fewer than 50 characters")])
+#     password = StringField('password', validators=[DataRequired(), Length(min=6, max=255, message="Password must be between 6 and 255 characters long")])
+
+
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired(), username_exists, Length(max=255, message="Username must be fewer than 255 characters")])
-    email = StringField('email', validators=[DataRequired(), user_exists, Length(max=255, message="Email must be fewer than 255 characters"), Email()])
-    firstName = StringField('first_name', validators=[DataRequired(), Length(max=50, message="First Name must be fewer than 50 characters")])
-    lastName = StringField('last_name', validators=[DataRequired(), Length(max=50, message="Last Name must be fewer than 50 characters")])
+    username = StringField('username', validators=[DataRequired(), username_exists, Length(min=6, max=50,  message="Username must be between 6 to 50 characters")])
+    email = StringField('email', validators=[DataRequired(), user_exists, Length(min=6, max=255, message="Email must be between 6 to 255 characters"), Email()])
+    firstName = StringField('first_name', validators=[DataRequired(), Length(min=6, max=50, message="First Name must be between 6 to 50 characters")])
+    lastName = StringField('last_name', validators=[DataRequired(), Length(min=6, max=50, message="Last Name must be between 6 to 50 characters")])
     password = StringField('password', validators=[DataRequired(), Length(min=6, max=255, message="Password must be between 6 and 255 characters long")])

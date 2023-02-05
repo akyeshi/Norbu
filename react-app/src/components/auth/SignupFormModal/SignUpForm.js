@@ -75,7 +75,7 @@ const SignUpForm = () => {
             ))}
           </div>
           <div className="signup-field-outer">
-            <label className="signup-label">User Name *</label>
+            <label className="signup-label">User Name</label>
             <input
               className="signup-input"
               type="text"
@@ -85,7 +85,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className="signup-field-outer">
-            <label className="signup-label">Email *</label>
+            <label className="signup-label">Email</label>
             <input
               className="signup-input"
               type="text"
@@ -95,7 +95,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className="signup-field-outer">
-            <label className="signup-label">First Name *</label>
+            <label className="signup-label">First Name</label>
             <input
               className="signup-input"
               type="text"
@@ -105,7 +105,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className="signup-field-outer">
-            <label className="signup-label">Last Name *</label>
+            <label className="signup-label">Last Name</label>
             <input
               className="signup-input"
               type="text"
@@ -115,7 +115,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className="signup-field-outer">
-            <label className="signup-label">Password *</label>
+            <label className="signup-label">Password</label>
             <input
               className="signup-input"
               type="password"
@@ -125,7 +125,7 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className="signup-field-outer">
-            <label className="signup-label">Confirm Password *</label>
+            <label className="signup-label">Confirm Password</label>
             <input
               className="signup-input"
               type="password"

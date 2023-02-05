@@ -105,6 +105,7 @@ const Cart = () => {
             >
               Discover something unique to fill it up
             </NavLink>
+            <h5><i class="fa-solid fa-leaf"></i>&nbsp;Norbu offsets carbon emissions from every delivery</h5>
           </div>
         )}
       </div>

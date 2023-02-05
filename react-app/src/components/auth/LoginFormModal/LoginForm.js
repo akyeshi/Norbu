@@ -68,12 +68,12 @@ const LoginForm = () => {
             </div>
             <div className="login-field-outer">
               <label className="login-label" htmlFor="email">
-                Email *
+                Email
               </label>
               <input
                 className="login-input"
                 name="email"
-                type="text"
+                type="email"
                 placeholder="Email"
                 value={email}
                 onChange={updateEmail}
@@ -81,7 +81,7 @@ const LoginForm = () => {
             </div>
             <div className="login-field-outer">
               <label className="login-label" htmlFor="password">
-                Password *
+                Password
               </label>
               <input
                 className="login-input"
@@ -97,7 +97,7 @@ const LoginForm = () => {
                 Login
               </button>
               <button className="login-form-demo-button" onClick={DemoUser}>
-                Demo User
+                Login free as a Guest
               </button>
             </div>
           </form>
