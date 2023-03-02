@@ -23,10 +23,12 @@ const Footer = () => {
             <div className="socials-inner">
               <div>
                 <a
-                  href="https://github.com/akyoshicode/Norbu.git"
+                  href="https://github.com/akyeshi/Norbu.git"
                   className="social-link"
                   target="_blank"
-                ><i className="fa-brands fa-github"></i></a>
+                >
+                  <i className="fa-brands fa-github"></i>
+                </a>
               </div>
             </div>
 
@@ -37,7 +39,9 @@ const Footer = () => {
                   href="https://linkedin.com/in/akyeshi"
                   className="social-link"
                   target="_blank"
-                ><i className="fa-brands fa-linkedin"></i></a>
+                >
+                  <i className="fa-brands fa-linkedin"></i>
+                </a>
               </div>
             </div>
           </div>
